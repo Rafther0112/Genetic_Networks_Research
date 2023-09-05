@@ -202,7 +202,7 @@ for Kx in [1,2,3,4,5,6,7,8,9,10]:
 
     estado_estacionario_ARNm.append([np.mean(ARNmX_estacionario), np.mean(ARNmY_estacionario), np.mean(ARNmZ_estacionario)])
     estado_estacionario_proteina.append([np.mean(X_estacionario), np.mean(Y_estacionario), np.mean(Z_estacionario)])
-    
+
     data = {'X': X_estacionario,
         'Y': Y_estacionario,
         'Z': Z_estacionario}
@@ -225,5 +225,5 @@ for Kx in [1,2,3,4,5,6,7,8,9,10]:
     variacion_informacion_ZY.append(Informacion_Z_Y)
     variacion_informacion_ZXY.append(Informacion_Z_X_Y)
 
-    diccionario_respuestas = {"matrices":matrices_covarianza_XYZ, "InformacionYX":variacion_informacion_YX, "InformacionZX":variacion_informacion_ZX, "InformacionZY": variacion_informacion_ZY, "InformacionZXY":variacion_informacion_ZXY}
+    diccionario_respuestas = {"matrices":matrices_covarianza_XYZ, "Estados_estacionarios_ARNm" :estado_estacionario_ARNm, "Estados_estacionarios_proteina" : estado_estacionario_proteina,  "InformacionYX":variacion_informacion_YX, "InformacionZX":variacion_informacion_ZX, "InformacionZY": variacion_informacion_ZY, "InformacionZXY":variacion_informacion_ZXY}
     np.save('diccionario_FFL_I3.npy', diccionario_respuestas)
