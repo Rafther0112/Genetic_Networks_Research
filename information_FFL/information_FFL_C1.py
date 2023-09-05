@@ -31,6 +31,10 @@ variacion_informacion_ZX = []
 variacion_informacion_ZY = []
 variacion_informacion_ZXY = []
 
+estado_estacionario_ARNm = []
+estado_estacionario_proteina = []
+
+#%%
 for Kx in [1,2,3,4,5,6,7,8,9,10]:
     
     Mx = Kx/gammamx
@@ -188,7 +192,7 @@ for Kx in [1,2,3,4,5,6,7,8,9,10]:
     
     x0 = np.array([0., 0., 0., 0., 0., 0., 0.])
 
-    num_cel = 1000 #número de células 
+    num_cel = 100 #número de células 
     celulas = np.array([Estado_celula(x0,np.arange(0.,700.,2.)) for i in tqdm(range(num_cel))])
 
     celulas_prom = np.mean(celulas,axis=0) #axis = 0 saca el promedio componente a componente de cada célula.
@@ -202,6 +206,8 @@ for Kx in [1,2,3,4,5,6,7,8,9,10]:
     Y_estacionario = celulas[:,sampling:,5].flatten()
     Z_estacionario = celulas[:,sampling:,6].flatten()
 
+    estado_estacionario_ARNm.append([np.mean(ARNmX_estacionario), np.mean(ARNmY_estacionario), np.mean(ARNmZ_estacionario)])
+    estado_estacionario_proteina.append([np.mean(X_estacionario), np.mean(Y_estacionario), np.mean(Z_estacionario)])
     data = {'X': X_estacionario,
         'Y': Y_estacionario,
         'Z': Z_estacionario}
@@ -224,5 +230,6 @@ for Kx in [1,2,3,4,5,6,7,8,9,10]:
     variacion_informacion_ZY.append(Informacion_Z_Y)
     variacion_informacion_ZXY.append(Informacion_Z_X_Y)
 
-    diccionario_respuestas = {"matrices":matrices_covarianza_XYZ, "InformacionYX":variacion_informacion_YX, "InformacionZX":variacion_informacion_ZX, "InformacionZY": variacion_informacion_ZY, "InformacionZXY":variacion_informacion_ZXY}
+    diccionario_respuestas = {"matrices":matrices_covarianza_XYZ, "Estados_estacionarios_ARNm" :estado_estacionario_ARNm, "Estados_estacionarios_proteina" : estado_estacionario_proteina,  "InformacionYX":variacion_informacion_YX, "InformacionZX":variacion_informacion_ZX, "InformacionZY": variacion_informacion_ZY, "InformacionZXY":variacion_informacion_ZXY}
     np.save('diccionario_FFL_C1.npy', diccionario_respuestas)
+# %%
