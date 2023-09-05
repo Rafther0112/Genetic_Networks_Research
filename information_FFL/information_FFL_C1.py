@@ -1,8 +1,7 @@
-#%%%
 import numpy as np
 import matplotlib.pyplot as plt
 from tqdm import tqdm
-#%%
+
 from numba import jit,njit,float64,int32
 import numba as nb
 import pandas as pd
