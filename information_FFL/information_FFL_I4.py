@@ -30,6 +30,9 @@ variacion_informacion_ZX = []
 variacion_informacion_ZY = []
 variacion_informacion_ZXY = []
 
+estado_estacionario_ARNm = []
+estado_estacionario_proteina = []
+
 for Kx in [1,2,3,4,5,6,7,8,9,10]:
     
     Mx = Kx/gammamx
@@ -197,6 +200,9 @@ for Kx in [1,2,3,4,5,6,7,8,9,10]:
     Y_estacionario = celulas[:,sampling:,5].flatten()
     Z_estacionario = celulas[:,sampling:,6].flatten()
 
+    estado_estacionario_ARNm.append([np.mean(ARNmX_estacionario), np.mean(ARNmY_estacionario), np.mean(ARNmZ_estacionario)])
+    estado_estacionario_proteina.append([np.mean(X_estacionario), np.mean(Y_estacionario), np.mean(Z_estacionario)])
+    
     data = {'X': X_estacionario,
         'Y': Y_estacionario,
         'Z': Z_estacionario}

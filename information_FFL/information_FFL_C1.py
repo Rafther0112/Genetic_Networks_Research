@@ -208,6 +208,7 @@ for Kx in [1,2,3,4,5,6,7,8,9,10]:
 
     estado_estacionario_ARNm.append([np.mean(ARNmX_estacionario), np.mean(ARNmY_estacionario), np.mean(ARNmZ_estacionario)])
     estado_estacionario_proteina.append([np.mean(X_estacionario), np.mean(Y_estacionario), np.mean(Z_estacionario)])
+    
     data = {'X': X_estacionario,
         'Y': Y_estacionario,
         'Z': Z_estacionario}
