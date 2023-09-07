@@ -128,37 +128,37 @@ for i in range(len(simulacion_FFL_C1["Estados_estacionarios_proteina"])):
 plt.figure(figsize=(10,6))
 plt.title("Comportamiento ARNm X estacionaria")
 plt.scatter(posiciones,estado_estacionario_ARNm_X_C1, label = "FFL C1")
-#plt.scatter(posiciones,estado_estacionario_ARNm_X_C2, label = "FFL C2")
-#plt.scatter(posiciones,estado_estacionario_ARNm_X_C3, label = "FFL C3")
+plt.scatter(posiciones,estado_estacionario_ARNm_X_C2, label = "FFL C2")
+plt.scatter(posiciones,estado_estacionario_ARNm_X_C3, label = "FFL C3")
 plt.scatter(posiciones,estado_estacionario_ARNm_X_C4, label = "FFL C4")
 plt.ylabel("Valor estacionario de ARNm X")
 plt.xlabel(r"Valor de $K_x$")
 plt.legend()
-plt.savefig("Comparación_ARNm_X_C1C4.jpg", dpi = 500)
+#plt.savefig("Comparación_ARNm_X_C1C4.jpg", dpi = 500)
 # %%
 plt.figure(figsize=(10,6))
 plt.title("Comportamiento ARNm Y estacionaria")
 plt.scatter(posiciones,estado_estacionario_ARNm_Y_C1, label = "FFL C1")
-#plt.scatter(posiciones,estado_estacionario_ARNm_Y_C2, label = "FFL C2")
-#plt.scatter(posiciones,estado_estacionario_ARNm_Y_C3, label = "FFL C3")
+plt.scatter(posiciones,estado_estacionario_ARNm_Y_C2, label = "FFL C2")
+plt.scatter(posiciones,estado_estacionario_ARNm_Y_C3, label = "FFL C3")
 plt.scatter(posiciones,estado_estacionario_ARNm_Y_C4, label = "FFL C4")
 plt.legend()
 plt.ylabel("Valor estacionario de ARNm Y")
 plt.xlabel(r"Valor de $K_x$")
 plt.legend()
-plt.savefig("Comparación_ARNm_Y_C1C4.jpg", dpi = 500)
+#plt.savefig("Comparación_ARNm_Y_C1C4.jpg", dpi = 500)
 # %%
 plt.figure(figsize=(10,6))
 plt.title("Comportamiento ARNm Z estacionaria")
 plt.scatter(posiciones,estado_estacionario_ARNm_Z_C1, label = "FFL C1")
-#plt.scatter(posiciones,estado_estacionario_ARNm_Z_C2, label = "FFL C2")
-#plt.scatter(posiciones,estado_estacionario_ARNm_Z_C3, label = "FFL C3")
+plt.scatter(posiciones,estado_estacionario_ARNm_Z_C2, label = "FFL C2")
+plt.scatter(posiciones,estado_estacionario_ARNm_Z_C3, label = "FFL C3")
 plt.scatter(posiciones,estado_estacionario_ARNm_Z_C4, label = "FFL C4")
 plt.legend()
 plt.ylabel("Valor estacionario de ARNm Z")
 plt.xlabel(r"Valor de $K_x$")
 plt.legend()
-plt.savefig("Comparación_ARNm_Z_C1C4.jpg", dpi = 500)
+#plt.savefig("Comparación_ARNm_Z_C1C4.jpg", dpi = 500)
 
 # %%
 
@@ -190,4 +190,60 @@ plt.ylabel(r"Fraccion $\frac{[C2]}{[C3]}$")
 plt.xlabel(r"Valor de $K_x$")
 plt.legend()
 plt.savefig("Comparación_fraccion_proteina_ARNM_C2C3.jpg", dpi = 500)
+# %%
+total_proteina_C1 = np.array(estado_estacionario_Y_C1) + np.array(estado_estacionario_Z_C1)
+total_proteina_C2 = np.array(estado_estacionario_Y_C2) + np.array(estado_estacionario_Z_C2)
+total_proteina_C3 = np.array(estado_estacionario_Y_C3) + np.array(estado_estacionario_Z_C3)
+total_proteina_C4 = np.array(estado_estacionario_Y_C4) + np.array(estado_estacionario_Z_C4)
+# %%
+plt.title("Comportamiento proteina Y estacionaria")
+plt.scatter(posiciones,total_proteina_C1, label = "FFL C1")
+#plt.scatter(posiciones,total_proteina_C2, label = "FFL C2")
+#plt.scatter(posiciones,total_proteina_C3, label = "FFL C3")
+plt.scatter(posiciones,total_proteina_C4, label = "FFL C4")
+plt.legend()
+#%%
+plt.title("Comportamiento proteina Y estacionaria")
+#plt.scatter(posiciones,total_proteina_C1, label = "FFL C1")
+plt.scatter(posiciones,total_proteina_C2, label = "FFL C2")
+plt.scatter(posiciones,total_proteina_C3, label = "FFL C3")
+#plt.scatter(posiciones,total_proteina_C4, label = "FFL C4")
+plt.legend()
+# %%
+total_proteina_C1
+# %%
+fraccion = total_proteina_C4/total_proteina_C1
+# %%
+plt.scatter(posiciones, fraccion)
+
+# %%
+plt.scatter(posiciones, fraccion-1)
+plt.axhline(y=0, color = "red")
+# %%
+total_proteina_C1 = np.array(estado_estacionario_Y_C1) + np.array(estado_estacionario_Z_C1)
+informacion_final_C1 = np.array(simulacion_FFL_C1["InformacionZXY"])
+costo_informacion_C1 = informacion_final_C1*total_proteina_C1
+# %%
+total_proteina_C4 = np.array(estado_estacionario_Y_C4) + np.array(estado_estacionario_Z_C4)
+informacion_final_C4 = np.array(simulacion_FFL_C4["InformacionZXY"])
+costo_informacion_C4 = informacion_final_C4*total_proteina_C4
+
+# %%
+plt.title("Comportamiento fraccion Z estacionaria")
+plt.scatter(posiciones,costo_informacion_C1, label = "FFL C1")
+plt.scatter(posiciones,costo_informacion_C4, label = "FFL C4")
+plt.legend()
+# %%
+informacion_final_C1
+# %%
+informacion_final_C4
+# %%
+total_proteina_C1
+# %%
+total_proteina_C4
+# %%
+plt.title("Comportamiento fraccion Z estacionaria")
+plt.scatter(posiciones,informacion_final_C1, label = "FFL C1")
+plt.scatter(posiciones,informacion_final_C4, label = "FFL C4")
+plt.legend()
 # %%
