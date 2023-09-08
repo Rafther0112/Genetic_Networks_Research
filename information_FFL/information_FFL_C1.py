@@ -231,5 +231,5 @@ for Kx in [1,2,3,4,5,6]:
     variacion_informacion_ZXY.append(Informacion_Z_X_Y)
 
     diccionario_respuestas = {"distribucion_estacionario_ARNmZ" : ARNmZ_estacionario, "distribucion_estacionario_ARNmY": ARNmY_estacionario,"distribucion_estacionario_proteinaY": Y_estacionario, "distribucion_estacionario_proteinaZ": Z_estacionario, "matrices":matrices_covarianza_XYZ, "Estados_estacionarios_ARNm" :estado_estacionario_ARNm, "Estados_estacionarios_proteina" : estado_estacionario_proteina,  "InformacionYX":variacion_informacion_YX, "InformacionZX":variacion_informacion_ZX, "InformacionZY": variacion_informacion_ZY, "InformacionZXY":variacion_informacion_ZXY}
-    np.save('diccionario_FFL_C1.npy', diccionario_respuestas)
+    np.save('diccionario_FFL_C1_experimentos_distribuciones.npy', diccionario_respuestas)
 # %%
