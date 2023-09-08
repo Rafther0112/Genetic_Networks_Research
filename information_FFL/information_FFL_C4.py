@@ -33,6 +33,12 @@ variacion_informacion_ZXY = []
 estado_estacionario_ARNm = []
 estado_estacionario_proteina = []
 
+distribucion_estacionario_ARNm_Y = []
+distribucion_estacionario_ARNm_Z = []
+
+distribucion_estacionario_proteina_Y = []
+distribucion_estacionario_proteina_Z = []
+
 for Kx in [1,2,3,4,5,6]:
     
     Mx = Kx/gammamx
@@ -201,6 +207,12 @@ for Kx in [1,2,3,4,5,6]:
     Z_estacionario = celulas[:,sampling:,6].flatten()
 
 
+    distribucion_estacionario_ARNm_Y.append(ARNmY_estacionario)
+    distribucion_estacionario_ARNm_Z.append(ARNmZ_estacionario)
+
+    distribucion_estacionario_proteina_Y.append(Y_estacionario)
+    distribucion_estacionario_proteina_Z.append(Z_estacionario)
+
     estado_estacionario_ARNm.append([np.mean(ARNmX_estacionario), np.mean(ARNmY_estacionario), np.mean(ARNmZ_estacionario)])
     estado_estacionario_proteina.append([np.mean(X_estacionario), np.mean(Y_estacionario), np.mean(Z_estacionario)])
 
@@ -226,5 +238,5 @@ for Kx in [1,2,3,4,5,6]:
     variacion_informacion_ZY.append(Informacion_Z_Y)
     variacion_informacion_ZXY.append(Informacion_Z_X_Y)
 
-    diccionario_respuestas = {"distribucion_estacionario_ARNmZ" : ARNmZ_estacionario, "distribucion_estacionario_ARNmY": ARNmY_estacionario,"distribucion_estacionario_proteinaY": Y_estacionario, "distribucion_estacionario_proteinaZ": Z_estacionario, "matrices":matrices_covarianza_XYZ, "Estados_estacionarios_ARNm" :estado_estacionario_ARNm, "Estados_estacionarios_proteina" : estado_estacionario_proteina,  "InformacionYX":variacion_informacion_YX, "InformacionZX":variacion_informacion_ZX, "InformacionZY": variacion_informacion_ZY, "InformacionZXY":variacion_informacion_ZXY}
+    diccionario_respuestas = {"distribucion_estacionario_ARNmZ" : distribucion_estacionario_ARNm_Z, "distribucion_estacionario_ARNmY": distribucion_estacionario_ARNm_Y,"distribucion_estacionario_proteinaY": distribucion_estacionario_proteina_Y, "distribucion_estacionario_proteinaZ": distribucion_estacionario_proteina_Z, "matrices":matrices_covarianza_XYZ, "Estados_estacionarios_ARNm" :estado_estacionario_ARNm, "Estados_estacionarios_proteina" : estado_estacionario_proteina,  "InformacionYX":variacion_informacion_YX, "InformacionZX":variacion_informacion_ZX, "InformacionZY": variacion_informacion_ZY, "InformacionZXY":variacion_informacion_ZXY}
     np.save('diccionario_FFL_C4_experimentos_distribuciones.npy', diccionario_respuestas)
