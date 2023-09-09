@@ -42,5 +42,8 @@ for i in range(0,6):
 
 plt.scatter(np.arange(0,6), valores_p_distribuciones_proteinaZ_C1C4)
 # %%
-valores_p_distribuciones_ARNmY_C1C4
+valores_p_distribuciones_proteinaY_C1C4
+# %%
+plt.hist(simulacion_FFL_C1["distribucion_estacionario_proteinaY"][5], bins = 20, histtype="step")
+plt.hist(simulacion_FFL_C4["distribucion_estacionario_proteinaY"][5], bins = 20, histtype="step")
 # %%
