@@ -28,7 +28,7 @@ Mz = 25
 #___________________________________________________________________________________________________
 diccionario_global_respuestas = []
 
-for Hill in [1,2,3]:
+for Hill in [1]:
     print(Hill)
     matrices_covarianza_XYZ = []
 
@@ -203,7 +203,7 @@ for Hill in [1,2,3]:
         
         x0 = np.array([0., 0., 0., 0., 0., 0., 0.])
 
-        num_cel = 2 #número de células 
+        num_cel = 1000 #número de células 
         celulas = np.array([Estado_celula(x0,np.arange(0.,700.,2.)) for i in tqdm(range(num_cel))])
 
         celulas_prom = np.mean(celulas,axis=0) #axis = 0 saca el promedio componente a componente de cada célula.
@@ -249,6 +249,5 @@ for Hill in [1,2,3]:
         variacion_informacion_ZXY.append(Informacion_Z_X_Y)
 
         diccionario_respuestas = {"distribucion_estacionario_ARNmZ" : distribucion_estacionario_ARNm_Z, "distribucion_estacionario_ARNmY": distribucion_estacionario_ARNm_Y,"distribucion_estacionario_proteinaY": distribucion_estacionario_proteina_Y, "distribucion_estacionario_proteinaZ": distribucion_estacionario_proteina_Z, "matrices":matrices_covarianza_XYZ, "Estados_estacionarios_ARNm" :estado_estacionario_ARNm, "Estados_estacionarios_proteina" : estado_estacionario_proteina,  "InformacionYX":variacion_informacion_YX, "InformacionZX":variacion_informacion_ZX, "InformacionZY": variacion_informacion_ZY, "InformacionZXY":variacion_informacion_ZXY}
-    diccionario_global_respuestas.append(diccionario_respuestas)
-    np.save('Simulacion_FFL_C1_AND_Hill.npy', diccionario_global_respuestas)
+        np.save('Simulacion_FFL_C1_AND_Hill_1.npy', diccionario_respuestas)
 

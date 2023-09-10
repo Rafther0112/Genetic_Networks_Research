@@ -27,7 +27,7 @@ My = 10
 Mz = 25
 #___________________________________________________________________________________________________
 diccionario_global_respuestas = []
-for Hill in [1,2,3]:
+for Hill in [1]:
 
     matrices_covarianza_XYZ = []
 
@@ -244,6 +244,6 @@ for Hill in [1,2,3]:
         variacion_informacion_ZXY.append(Informacion_Z_X_Y)
 
         diccionario_respuestas = {"matrices":matrices_covarianza_XYZ, "Estados_estacionarios_ARNm" :estado_estacionario_ARNm, "Estados_estacionarios_proteina" : estado_estacionario_proteina,  "InformacionYX":variacion_informacion_YX, "InformacionZX":variacion_informacion_ZX, "InformacionZY": variacion_informacion_ZY, "InformacionZXY":variacion_informacion_ZXY}
-        diccionario_global_respuestas.append(diccionario_respuestas)
+        #diccionario_global_respuestas.append(diccionario_respuestas)
 
-        np.save('Simulacion_FFL_I3_AND_Hill.npy', diccionario_global_respuestas)
+        np.save('Simulacion_FFL_I3_AND_Hill_1.npy', diccionario_respuestas)
