@@ -26,7 +26,7 @@ muZ     =1/30            #Tasa de degradacion de proteina Z
 My = 10
 Mz = 25
 #___________________________________________________________________________________________________
-
+diccionario_global_respuestas = []
 for Hill in [1,2,3]:
 
     matrices_covarianza_XYZ = []
@@ -45,7 +45,6 @@ for Hill in [1,2,3]:
     distribucion_estacionario_proteina_Y = []
     distribucion_estacionario_proteina_Z = []
 
-    diccionario_global_respuestas = {}
 
     for Kx in [1,2,3,4,5,6,7,8,9,10]:
     
@@ -253,6 +252,6 @@ for Hill in [1,2,3]:
         variacion_informacion_ZXY.append(Informacion_Z_X_Y)
         diccionario_respuestas = {"distribucion_estacionario_ARNmZ" : distribucion_estacionario_ARNm_Z, "distribucion_estacionario_ARNmY": distribucion_estacionario_ARNm_Y,"distribucion_estacionario_proteinaY": distribucion_estacionario_proteina_Y, "distribucion_estacionario_proteinaZ": distribucion_estacionario_proteina_Z, "matrices":matrices_covarianza_XYZ, "Estados_estacionarios_ARNm" :estado_estacionario_ARNm, "Estados_estacionarios_proteina" : estado_estacionario_proteina,  "InformacionYX":variacion_informacion_YX, "InformacionZX":variacion_informacion_ZX, "InformacionZY": variacion_informacion_ZY, "InformacionZXY":variacion_informacion_ZXY}
        
-        diccionario_global_respuestas[f"Simulacion_Hill_{Hill}"] = diccionario_respuestas
+        diccionario_global_respuestas.append(diccionario_respuestas)
 
         np.save('Simulacion_FFL_C4_AND_Hill.npy', diccionario_global_respuestas)

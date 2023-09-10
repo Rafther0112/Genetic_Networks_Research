@@ -4,9 +4,10 @@ import matplotlib.pyplot as plt
 import csv
 from scipy import stats
 # %%
-simulacion_FFL_C1 = np.load('diccionario_FFL_C1_experimentos_distribuciones.npy', allow_pickle=True).item()
+simulacion_FFL_C1 = np.load('Simulacion_FFL_C1_AND_Hill.npy', allow_pickle=True).item()
 simulacion_FFL_C4 = np.load('diccionario_FFL_C4_experimentos_distribuciones.npy', allow_pickle=True).item()
-
+#%%
+print(len(simulacion_FFL_C1))
 # %%
 valores_p_distribuciones_ARNmY_C1C4 = []
 valores_p_distribuciones_ARNmZ_C1C4 = []
