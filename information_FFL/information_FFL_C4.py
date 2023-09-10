@@ -199,7 +199,7 @@ for Hill in [1]:
         
         x0 = np.array([0., 0., 0., 0., 0., 0., 0.])
 
-        num_cel = 500 #número de células 
+        num_cel = 1000 #número de células 
         celulas = np.array([Estado_celula(x0,np.arange(0.,700.,2.)) for i in tqdm(range(num_cel))])
 
         celulas_prom = np.mean(celulas,axis=0) #axis = 0 saca el promedio componente a componente de cada célula.
